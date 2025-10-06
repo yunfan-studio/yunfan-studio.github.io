@@ -172,3 +172,35 @@ body, h1, p {
     color: #aaa;
     text-align: center;
 }
+
+/* =========== 响应式设计 - 移动端适配 =========== */
+
+@media (max-width: 768px) {
+
+    /* --- 英雄区域 移动端样式 --- */
+    .hero-title {
+        font-size: 2.5em; /* 在手机上，把主标题的字号改小一点 */
+    }
+
+    .hero-subtitle {
+        font-size: 1.1em;
+    }
+
+    /* --- 服务介绍区域 移动端样式 --- */
+    .services-grid {
+        grid-template-columns: 1fr; /* 关键！把“三列”布局，改成“单列”布局！*/
+        gap: 20px; /* 减小卡片之间的间距 */
+    }
+
+    .section-title {
+        font-size: 2em; /* 缩小区域标题 */
+        margin-bottom: 40px;
+    }
+
+    /* --- 区域上下留白 移动端样式 --- */
+    .services-section,
+    .workflow-section,
+    .contact-section {
+        padding: 60px 0; /* 减小上下的留白，让页面更紧凑 */
+    }
+}
