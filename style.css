@@ -1,0 +1,174 @@
+/* --- 全局样式重置和基础设定 --- */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 使用现代、清晰的系统字体 */
+}
+
+/* --- 英雄区域 整体样式 --- */
+.hero-section {
+    display: flex; /* 使用Flexbox布局，这是现代CSS的核心！*/
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 高度占满整个屏幕 */
+    background-color: #f5f7fa; /* 我们选定的“科技白”背景 */
+    text-align: center; /* 让内部的文字都居中 */
+    padding: 0 20px; /* 给左右两边留一点空隙，防止文字贴边 */
+}
+
+/* --- 内容容器 (那个透明盒子) --- */
+.hero-content {
+    max-width: 800px; /* 内容的最大宽度，防止在宽屏幕上文字拉得太开 */
+}
+
+/* --- 大标题 样式 --- */
+.hero-title {
+    font-size: 3.5em; /* 足够大的字号，吸引眼球 */
+    color: #1a1a1a; /* 深黑色，形成强烈对比 */
+    margin-bottom: 20px; /* 和副标题之间留出一些距离 */
+}
+
+/* --- 副标题 样式 --- */
+.hero-subtitle {
+    font-size: 1.2em;
+    color: #555; /* 用灰色来和主标题区分，更有层次感 */
+    margin-bottom: 40px; /* 和按钮之间留出更多距离 */
+}
+
+/* --- 行动按钮 样式 (究极进化版) --- */
+.hero-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid #007bff; /* 我们先给它一个边框 */
+    background-color: transparent; /* 背景变透明 */
+    color: #007bff; /* 文字是蓝色 */
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
+    
+    /* 关键！准备一个看不见的“渐变背景”，为了后面的动画 */
+    background-image: linear-gradient(to right, #ffffff, #1d2, #fdcf04, #bdea08); /* 从蓝色渐变到深蓝再到白色 */
+    background-size: 200% 100%; /* 让渐变背景的宽度是按钮的两倍 */
+    background-position: 100% 0; /* 并且，先把有颜色的部分藏在右边 */
+
+    /* 我们的核心魔法：过渡效果！*/
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 一个更平滑、更专业的过渡曲线 */
+}
+
+/* --- 鼠标悬浮在按钮上时的效果 (究极进化版) --- */
+.hero-button:hover {
+    background-position: 0 0; /* 让渐变背景，平滑地从右边移动到左边，填满整个按钮 */
+    color: #ffffff; /* 同时，文字颜色变成白色 */
+    transform: scale(1.05); /* 不再是简单上移，而是稍微放大，更有冲击力 */
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); /* 阴影效果保留，并可以更明显一点 */
+}
+
+/* --- 通用容器和标题样式 (可以被多个区域复用) --- */
+.container {
+    width: 100%;
+    max-width: 1200px; /* 设置一个最大宽度 */
+    margin: 0 auto; /* 关键！让容器在页面上水平居中 */
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 60px; /* 和下面的网格内容留出足够距离 */
+}
+
+
+/* --- 服务介绍区域 样式 --- */
+.services-section {
+    padding: 80px 0; /* 给这个区域上下留出足够的呼吸空间 */
+    background-color: #ffffff; /* 白色背景，和英雄区的灰色区分开 */
+}
+
+/* --- 服务网格布局 --- */
+.services-grid {
+    display: grid; /* 使用CSS Grid布局，实现网格系统 */
+    grid-template-columns: repeat(3, 1fr); /* 关键！创建三列，每列占据相等的空间(1fr) */
+    gap: 40px; /* 网格项之间的间距 */
+}
+
+/* --- 单个服务项 样式 --- */
+.service-item {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* 鼠标悬浮时，卡片上浮并出现阴影 */
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6; /* 增加行高，让段落文字更易读 */
+}
+
+/* --- 价值展示区域 样式 --- */
+.workflow-section {
+    padding: 80px 0;
+    background-color: #f5f7fa; /* 用回“科技白”，和上下两个白色区域形成区分 */
+}
+
+/* --- 流程图图片 样式 --- */
+.workflow-image {
+    display: block; /* 让图片表现得像一个块，才能用margin auto居中 */
+    max-width: 600px; /* 最大宽度为100%，确保在小屏幕上能自动缩放 */
+    margin: 0 auto; /* 水平居中 */
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* 给图片加上漂亮的阴影，让它浮起来 */
+}
+
+/* --- 关于我 & 联系我 区域 样式 --- */
+.contact-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.contact-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-me {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.qr-code-image {
+    max-width: 200px; /* 设置二维码的最大尺寸 */
+    margin-bottom: 20px;
+}
+
+.qr-code-text {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* --- 页脚 样式 --- */
+.footer-section {
+    padding: 30px 0;
+    background-color: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+}
